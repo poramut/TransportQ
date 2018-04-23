@@ -5,8 +5,10 @@ package com.example.pong.transportq.Adapter;
  */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -14,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -143,6 +146,37 @@ public class adepter_detail extends ArrayAdapter {
             }
         });
 
+
+
+        Button save = (Button) v.findViewById(R.id.savetq);
+        save.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setCancelable(true);
+                builder.setTitle("บันทึกหมายเหตุ");
+                builder.setMessage("ต้องการบันทึกหมายเหตุนี้หรือไม่");
+                builder.setPositiveButton("ใช่",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Log.d("BBBBBB", listData.get(xps).getDetail());
+                                getdetail(xDocNo,listData.get(xps).getDetail());
+                                //( (Checktransport_Activity)aActivity ).getlistdata( listData.get(xps).getDetail() );
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
 
         return v;
     }

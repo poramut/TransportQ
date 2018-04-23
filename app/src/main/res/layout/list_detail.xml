@@ -105,10 +105,17 @@
                     android:id="@+id/note"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
+                    android:layout_weight="0.4"
                     android:ems="10"
                     android:inputType="text"
                     />
+
+                <Button
+                    android:id="@+id/savetq"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:text="บันทึก" />
 
                 <!--<EditText-->
                     <!--android:id="@+id/note"-->
