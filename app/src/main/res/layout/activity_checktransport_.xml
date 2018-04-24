@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:weightSum="1"
+    android:background="@drawable/bgblue"
     tools:context=".Login_Activity">
 
 
@@ -24,15 +25,18 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:text="ชื่อสายส่ง" />
+            android:layout_weight="0.15"
+            android:text="ชื่อสายส่ง :"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:text="TextView" />
+            android:layout_weight="0.85"
+            android:text="TextView"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -46,14 +50,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:text="ลำดับ" />
+            android:text="ลำดับ"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
-            android:text="รายการ" />
+            android:text="รายการ"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <ListView

@@ -87,6 +87,7 @@ public class Checktransport_Activity extends AppCompatActivity {
                     JSONArray setRs = jsonObj.getJSONArray(iFt.getTAG_RESULTS());
                         String scc;
                         String nub ;
+                        String swap;
                     Log.d("BBBBYO!", Login_Code );
                     for(int i=0;i<setRs.length();i++) {
                         JSONObject c = setRs.getJSONObject(i);
@@ -99,7 +100,11 @@ public class Checktransport_Activity extends AppCompatActivity {
                         tq.setFName(c.getString("FName"));
                         tq.setIsSend(c.getString("IsSend"));
                         tq.setxName(c.getString("xName"));
-                        tq.setDetail(c.getString("detail"));
+                        if (c.getString("detail").equals(null)||c.getString("detail").equals(" ")){
+                            tq.setDetail(" ");
+                        }else{
+                            tq.setDetail(c.getString("detail"));
+                        }
                         tq.setTqDI(c.getString("transportID"));
                         xName = c.getString("xName");
                         Log.d("FName ==",c.getString("FName") );

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="130dp"
     android:orientation="vertical"
     android:weightSum="1"
     tools:context=".Login_Activity">
@@ -19,7 +19,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:text="TextView" />
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:text="TextView"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -32,13 +36,15 @@
                 android:layout_height="wrap_content"
                 android:weightSum="1"
                 android:orientation="horizontal">
-
                 <TextView
                     android:id="@+id/FName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:paddingLeft="5dp"
+                    android:text="TextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -51,8 +57,10 @@
                     android:id="@+id/textView13"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:text="สถานะ" />
+                    android:layout_weight="0.25"
+                    android:text="สถานะ"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <!--<TextView-->
                     <!--android:id="@+id/textView14"-->
@@ -60,13 +68,16 @@
                     <!--android:layout_height="wrap_content"-->
                     <!--android:layout_weight="0.3"-->
                     <!--android:text="ไม่สำเร็จ" />-->
-
-                <TextView
-                    android:id="@+id/textView15"
+                <ToggleButton
+                    android:id="@+id/bts2"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:text="หมายเหตุ" />
+                    android:layout_height="40dp"
+                    android:layout_weight="0.70"
+                    android:textOff="ยังไม่ได้ส่ง"
+                    android:textOn="ส่งแล้ว
+"
+                    android:text="ToggleButton" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -91,21 +102,20 @@
                     android:layout_weight="0.3"
                     android:text="" />-->
 
-                <ToggleButton
-                    android:id="@+id/bts2"
+                <TextView
+                    android:id="@+id/textView15"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
-                    android:textOff="ยังไม่ได้ส่ง"
-                    android:textOn="ส่งแล้ว
-"
-                    android:text="ToggleButton" />
+                    android:layout_weight="0.25"
+                    android:text="หมายเหตุ"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/note"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.5"
                     android:ems="10"
                     android:inputType="text"
                     />
@@ -114,7 +124,7 @@
                     android:id="@+id/savetq"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.22"
                     android:text="บันทึก" />
 
                 <!--<EditText-->

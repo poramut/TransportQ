@@ -17,10 +17,10 @@ import java.util.Calendar;
 
 public class iFunction {
     //private String xIp = "http://fai01.dyndns.biz:8181";
-    private String xIp = "http://192.168.43.141:8765";
+    //private String xIp = "http://192.168.43.141:8765";
     //private String xIp = "http://192.168.0.142:8765";
     //private String xIp = "http://192.168.1.205:8765";
-    //private String xIp = "http://192.168.0.125:8765";
+    private String xIp = "http://phc.dyndns.biz:8181";
     //private String xIp = "http:///172.20.10.12:8765";
     private String TAG_RESULTS = "result";
     // private String xIp = "http://172.16.1.2:8181";
@@ -33,25 +33,12 @@ public class iFunction {
         return TAG_RESULTS;
     }
 
-    public String getLogin() { return xUrl + "/login.php"; }
     public String chklogin() { return xUrl + "/chklogin.php"; }
     public String issend() { return xUrl + "/issend.php"; }
     public String nosend() { return xUrl + "/nosend.php"; }
     public String getdetail() { return xUrl + "/getdetail.php"; }
-    public String getdoc() { return xUrl + "/getdoc.php"; }
-    public String inserBufferLose() { return xUrl + "/bufferLose.php"; }
-    public String getbuffer() { return xUrl + "/getbuffer.php"; }
-    public String getDoclose() { return xUrl + "/getDoclose.php"; }
     public String getdoc_tsq() { return xUrl + "/getdoc_tsq.php"; }
-    public String onDel() { return xUrl + "/ondel.php"; }
-    public String onCancel() { return xUrl + "/onCancel.php"; }
-    public String getUrlImg() { return xUrl + "/img/"; }
-    public String getUrl001() { return xUrl + "/img/logo1.png"; }
-    public String CreateDoc() { return xUrl + "/createDoc.php"; }
-    public String cancelDoc() { return xUrl + "/cancelDoc.php"; }
-    public String getdatenow() { return xUrl + "/getdatenow.php"; }
-    public String getbilllose() { return xUrl + "/getbilllose.php"; }
-    public String getheaddoc() { return xUrl + "/getheaddoc.php"; }
+
 
     public String getTodayLong() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");

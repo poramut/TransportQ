@@ -110,7 +110,6 @@ public class adepter_detail extends ArrayAdapter {
                     final EditText txt = (EditText) v;
                     // Log.d("LoginCode",LoginCode );
                     listData.get( xps ).setDetail( txt.getText().toString() );
-
                     return true;
                 }
                 return false;
@@ -170,6 +169,7 @@ public class adepter_detail extends ArrayAdapter {
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        //( (Checktransport_Activity)aActivity ).getlistdata(User);
                     }
                 });
                 AlertDialog dialog = builder.create();
