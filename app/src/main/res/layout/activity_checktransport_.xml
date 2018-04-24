@@ -26,9 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
+            android:paddingLeft="10dp"
             android:text="ชื่อสายส่ง :"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tName"
@@ -36,32 +38,39 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.85"
             android:text="TextView"
-            android:textSize="24sp" />
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:text="ลำดับ"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:layout_weight="0.1"
+            android:paddingLeft="10dp"
+            android:text="No."
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:text="รายการ"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ListView
