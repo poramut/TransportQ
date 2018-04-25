@@ -21,7 +21,9 @@ public class iFunction {
     //private String xIp = "http://192.168.0.142:8765";
     //private String xIp = "http://192.168.1.205:8765";
     private String xIp = "http://phc.dyndns.biz:8181";
-    //private String xIp = "http:///172.20.10.12:8765";
+//    private String xIp = "http:///172.20.10.12:8765";
+//    private String xIp = "http://192.168.0.100";
+
     private String TAG_RESULTS = "result";
     // private String xIp = "http://172.16.1.2:8181";
 

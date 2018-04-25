@@ -4,10 +4,16 @@ package com.example.pong.transportq.Adapter;
  * Created by Pong on 4/20/2018.
  */
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -23,11 +29,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
 import com.example.pong.transportq.Checktransport_Activity;
 import com.example.pong.transportq.R;
 import com.example.pong.transportq.propoties.qTransporter;
 import com.example.pong.transportq.xFunction.RegisterUserClass;
+import com.example.pong.transportq.xFunction.Session;
 import com.example.pong.transportq.xFunction.iFunction;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,7 +50,7 @@ import java.util.HashMap;
  */
 
 public class adepter_detail extends ArrayAdapter {
-
+    private Session session;
     private ArrayList<qTransporter> listData;
     private AppCompatActivity aActivity;
     private iFunction iFt = new iFunction();
@@ -74,6 +83,7 @@ public class adepter_detail extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        session = new Session(this.aActivity);
         LayoutInflater inflater = (LayoutInflater) aActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View v = inflater.inflate(R.layout.list_detail, parent, false);
         final qTransporter pCus = listData.get(position);
@@ -137,7 +147,15 @@ public class adepter_detail extends ArrayAdapter {
                 // TODO Auto-generated method stub
                 if(isChecked) {
                     buttonView.setBackgroundColor(Color.GREEN);
-                    issend(xDocNo);
+                    String test;
+                    ( (Checktransport_Activity)aActivity ).getLocation();
+                    String latti = session.getLatti();
+                    String longti = session.getLongti();
+                    String location = session.getLocation();
+                    Log.d("Latlong", latti);
+                    Log.d("Latlong", longti);
+                    Log.d("Latlong", location);
+                    issend(xDocNo,latti,longti,location);
                 }else{
                     buttonView.setBackgroundColor(Color.RED);
                     nosend(xDocNo);
@@ -237,7 +255,7 @@ public class adepter_detail extends ArrayAdapter {
         nosend ru = new nosend();
         ru.execute(xDocNo);
     }
-    public void issend(final String xDocNo) {
+    public void issend(final String xDocNo,String lati,String longti,String location) {
         class issend extends AsyncTask<String, Void, String> {
             // variable
 
@@ -284,13 +302,16 @@ public class adepter_detail extends ArrayAdapter {
                 RegisterUserClass ruc = new RegisterUserClass();
                 HashMap<String, String> data = new HashMap<String,String>();
                 data.put("DocNo",params[0]);
+                data.put("Lati",params[1]);
+                data.put("Longti",params[2]);
+                data.put("Location",params[3]);
                 Log.d("ACCTT22", params[0]);
                 String result = ruc.sendPostRequest(REGISTER_URL,data);
                 return result;
             }
         }
         issend ru = new issend();
-        ru.execute(xDocNo);
+        ru.execute(xDocNo,lati,longti,location);
     }
     public void getdetail(String xDocNo,String detail) {
         class nosend extends AsyncTask<String, Void, String> {
@@ -346,5 +367,7 @@ public class adepter_detail extends ArrayAdapter {
         nosend ru = new nosend();
         ru.execute(xDocNo,detail);
     }
+
+
 
 }
