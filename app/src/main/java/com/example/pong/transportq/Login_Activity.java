@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.pong.transportq.xFunction.RegisterUserClass;
+import com.example.pong.transportq.xFunction.Session;
 import com.example.pong.transportq.xFunction.iFunction;
 
 import org.json.JSONArray;
@@ -22,6 +23,7 @@ import java.util.HashMap;
 
 public class Login_Activity extends Activity {
 
+    private Session session;
     EditText uname;
     EditText pword;
     String Login_Code;
@@ -29,6 +31,10 @@ public class Login_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_);
+        session = new Session(getApplicationContext());
+        session.setLongti("");
+        session.setLatti("");
+        session.setLocation("");
         uname = (EditText) findViewById(R.id.uname);
         pword = (EditText) findViewById(R.id.pword);
         //  callService();

@@ -4,10 +4,16 @@ package com.example.pong.transportq.Adapter;
  * Created by Pong on 4/20/2018.
  */
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -23,11 +29,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
 import com.example.pong.transportq.Checktransport_Activity;
 import com.example.pong.transportq.R;
 import com.example.pong.transportq.propoties.qTransporter;
 import com.example.pong.transportq.xFunction.RegisterUserClass;
+import com.example.pong.transportq.xFunction.Session;
 import com.example.pong.transportq.xFunction.iFunction;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,7 +50,7 @@ import java.util.HashMap;
  */
 
 public class adepter_detail extends ArrayAdapter {
-
+    private Session session;
     private ArrayList<qTransporter> listData;
     private AppCompatActivity aActivity;
     private iFunction iFt = new iFunction();
@@ -74,6 +83,7 @@ public class adepter_detail extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        session = new Session(this.aActivity);
         LayoutInflater inflater = (LayoutInflater) aActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View v = inflater.inflate(R.layout.list_detail, parent, false);
         final qTransporter pCus = listData.get(position);
@@ -137,6 +147,13 @@ public class adepter_detail extends ArrayAdapter {
                 // TODO Auto-generated method stub
                 if(isChecked) {
                     buttonView.setBackgroundColor(Color.GREEN);
+                    String test;
+                    ( (Checktransport_Activity)aActivity ).getLocation();
+                    String latti = session.getLatti();
+                    String longti = session.getLongti();
+                    Log.d("Latlong", latti);
+                    Log.d("Latlong", longti);
+                    Log.d("Latlong", session.getLocation());
                     issend(xDocNo);
                 }else{
                     buttonView.setBackgroundColor(Color.RED);
@@ -346,5 +363,7 @@ public class adepter_detail extends ArrayAdapter {
         nosend ru = new nosend();
         ru.execute(xDocNo,detail);
     }
+
+
 
 }
