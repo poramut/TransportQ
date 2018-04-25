@@ -151,10 +151,11 @@ public class adepter_detail extends ArrayAdapter {
                     ( (Checktransport_Activity)aActivity ).getLocation();
                     String latti = session.getLatti();
                     String longti = session.getLongti();
+                    String location = session.getLocation();
                     Log.d("Latlong", latti);
                     Log.d("Latlong", longti);
-                    Log.d("Latlong", session.getLocation());
-                    issend(xDocNo);
+                    Log.d("Latlong", location);
+                    issend(xDocNo,latti,longti,location);
                 }else{
                     buttonView.setBackgroundColor(Color.RED);
                     nosend(xDocNo);
@@ -254,7 +255,7 @@ public class adepter_detail extends ArrayAdapter {
         nosend ru = new nosend();
         ru.execute(xDocNo);
     }
-    public void issend(final String xDocNo) {
+    public void issend(final String xDocNo,String lati,String longti,String location) {
         class issend extends AsyncTask<String, Void, String> {
             // variable
 
@@ -301,13 +302,16 @@ public class adepter_detail extends ArrayAdapter {
                 RegisterUserClass ruc = new RegisterUserClass();
                 HashMap<String, String> data = new HashMap<String,String>();
                 data.put("DocNo",params[0]);
+                data.put("Lati",params[1]);
+                data.put("Longti",params[2]);
+                data.put("Location",params[3]);
                 Log.d("ACCTT22", params[0]);
                 String result = ruc.sendPostRequest(REGISTER_URL,data);
                 return result;
             }
         }
         issend ru = new issend();
-        ru.execute(xDocNo);
+        ru.execute(xDocNo,lati,longti,location);
     }
     public void getdetail(String xDocNo,String detail) {
         class nosend extends AsyncTask<String, Void, String> {
